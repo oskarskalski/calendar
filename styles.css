@@ -1,0 +1,393 @@
+:root{
+    --calendar-height: 45vw;
+    --background-font-color: #303658;
+}
+
+body, .page-main{
+    background:#dadada;
+    width:100vw;
+    height:100vh;
+}
+
+thead {
+    text-align: center;
+}
+
+* {
+    padding:0;
+    margin:0;
+}
+
+.page-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-main__calendar{
+    display:flex;
+}
+
+.not-current-month-day{
+    color:#5f6483;
+    font-style:italic;
+    font-size:1.85vw;
+}
+
+.days-of-week__day-name{
+    font-size:2.7vw;
+    padding:5px;
+}
+
+.rectangle{
+    box-sizing: border-box;
+    width:calc(var(--calendar-height)/7);
+    height:calc(var(--calendar-height)/7);
+    border:2px solid transparent;
+    margin:2px;
+    font-size:1.9vw;
+    text-align:center;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: border 0.5s, font-size 0.5s;
+
+    position:relative;
+
+    animation: rectangleTest 1s;
+}
+
+.rectangle:hover, .choosen-day{
+    border:2px solid #303658;
+    font-size:2.2vw;
+}
+
+@keyframes rectangleTest{
+    from{
+        opacity:0;
+    }to{
+        opacity:1;
+    }
+}
+
+.current-day__error-element{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translateY(-50%) translateX(-50%);
+    color:#ffffff;
+    text-shadow: 3px 0 3px  red;
+    padding:10px;
+    font-size:1.5vw;
+    z-index: 999;
+    text-align:center;
+    background:#303658;
+    border:2px solid #ffffff;
+}
+
+.not-current-month{
+    color:#5f6483;
+    font-style:italic;
+}
+
+.calendar__days-of-month{
+    width:var(--calendar-height);
+}
+
+.calendar__container{
+    padding-top:10px;
+    padding-left:20px;
+    padding-right:20px;
+    background:#ffffff;
+
+}
+
+
+.days-of-week__name{
+    text-align: center;
+    width:calc(var(--calendar-height)/8);
+    border:2px solid transparent;
+}
+
+.calendar__current-day{
+    position:relative;
+    color:#ffffff;
+    width:calc(var(--calendar-height)/2);
+    background:var(--background-font-color);
+}
+
+.current-day__day-of-month, .current-day__date, .todos__heading{
+    text-align:center;
+}
+
+.current-day__day-of-month{
+    padding-top:10px;
+    font-size:5vw;
+}
+
+.current-day__date{
+    font-size:2.5vw;
+}
+
+.todos__heading{
+    padding:20px;
+    font-size:1.5vw
+}
+
+.current-day{
+    border-radius:50%;
+    border-color: green;
+}
+
+::-webkit-scrollbar{
+    background:#373e64;
+    border:1px solid #373e64;
+    width:8px;
+    margin-right:2px;
+}
+
+::-webkit-scrollbar-thumb  {
+    background:#ffffff;
+    border:2px solid #373e64;
+    border-radius:5px;
+}
+
+.task__heading{
+    font-size:1.9vw;
+}
+
+.task__content{
+    width:calc(100% - 10px);
+    box-sizing: border-box;
+    font-size:1.1vw;
+    margin-left:5px;
+    text-align:justify;
+}
+
+.low-priority{
+    border-left:2px solid green;
+}
+
+.medium-priority{
+    border-left:2px solid orange;
+}
+
+.todos__tasks{
+    height:calc(var(--calendar-height)*0.55);
+    overflow-y: auto;
+}
+
+.hard-priority{
+    border-left:2px solid red;
+}
+
+.low-priority-element{
+    background:green;
+}
+
+.medium-priority-element{
+    background:orange;
+}
+
+.hard-priority-element{
+    background:red;
+}
+
+.tasks__not-found-tasks-heading{
+    text-align:center;
+    font-size:1.5vw;
+    font-style: italic;
+    color:#c7c7c7;
+    width:100%;
+}
+
+.task__hours{
+    font-size:1vw;
+    margin-top:10px;
+}
+
+.tasks_task{
+    margin-left:5px;
+    padding:5px;
+    box-sizing: border-box;
+}
+
+.arrow-btn{
+    width:15px;
+    height:15px;
+    background:transparent;
+    border:0;
+    border-left:5px solid #000000;
+    border-top:5px solid #000000;
+    cursor:pointer;
+}
+
+.right-direction-arrow{
+    margin-left:50px;
+    transform: rotate(135deg);
+}
+
+.left-direction-arrow{
+    margin-right:50px;
+    transform: rotate(-45deg);
+}
+
+select{
+    text-align:center;
+    appearance: none;
+    border:0;
+    padding:5px;
+    font-size:18px;
+}
+
+.current-day__tasks-settings{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:2vw;
+    height:2vw;
+    border-radius:50%;
+    border:none;
+    z-index: 3;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor:pointer;
+}
+
+.present-day{
+    border-radius:50%;
+    border:2px solid green;
+}
+
+.tasks-settings__transform-lines{
+    display:block;
+    width:15px;
+    border-top:5px solid #303658;
+    position:relative;
+    padding:0;
+    margin:0;
+}
+
+.tasks-settings__transform-lines::after{
+    content:'';
+    width:100%;
+    height:100%;
+    position:absolute;
+    border-top:5px solid #303658;
+    left:0;
+    top:-5px;
+    transform:rotate(90deg);
+}
+
+.open-settings::after{
+    animation: 2s transformToHorizontalLine;
+    transform:rotate(0deg);
+}
+
+.close-settings::after{
+    animation: 2s transformToVerticalLine;
+}
+
+@keyframes transformToHorizontalLine{
+    from{
+        transform:rotate(90deg);
+    }to{
+         transform:rotate(0deg);
+     }
+}
+
+@keyframes transformToVerticalLine{
+    from{
+        transform:rotate(0deg);
+    }to{
+         transform:rotate(90deg);
+     }
+}
+
+
+.current-day__add-tasks{
+    color:#303658;
+    width:100%;
+    box-sizing: border-box;
+    height:calc(100% - 12.5vw);
+    border:2px solid #303658;
+    position:absolute;
+    bottom:0;
+    left:0;
+    background:#ffffff;
+    z-index: 2;
+
+    overflow-y: auto;
+}
+
+.appear{
+    animation:2s appearAnimation;
+}
+
+@keyframes appearAnimation{
+    from{
+        height:0%;
+    }to{
+         height:calc(100% - 12.5vw);
+     }
+}
+
+.disappear{
+    animation:2s disappearAnimation;
+}
+
+@keyframes disappearAnimation{
+    from{
+        height:calc(100% - 12.5vw);
+    }to{
+         height:0%;
+     }
+}
+
+.add-tasks__heading{
+    padding:5px;
+    text-align:center;
+}
+
+.add-tasks__title-task, .add-tasks__content-task,
+.add-tasks__add-task, .add-tasks__time-task,
+.add-tasks__priority-task{
+    box-sizing: border-box;
+    width:90%;
+    display:block;
+    margin:5px auto;
+    padding:5px;
+    color:#303658;
+    border:1px solid #303658;
+}
+
+.add-tasks__priority-task{
+    cursor:pointer;
+}
+
+.add-tasks__content-task{
+    height:35%;
+}
+
+.add-tasks__add-task{
+    background:#303658;
+    color:#ffffff;
+    margin-top:20px;
+    padding:10px;
+    border:#303658;
+}
+
+.tasks--dots {
+    width:100%;
+    height:6px;
+    display: flex;
+    justify-content: center;
+}
+
+.tasks--dots > div{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    margin:2.5px;
+}
