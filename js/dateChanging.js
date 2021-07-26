@@ -7,7 +7,6 @@ const dateChanging = () => {
     }, false)
 
     yearSelect.addEventListener('change', (e) => {
-        console.log(yearSelect.value)
         generateCalendarTable('')
     }, false)
 

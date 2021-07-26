@@ -3,9 +3,10 @@ const init = () => {
     let currentDate = new Date()
 
     generateTodosSection(namesOfMonths, currentDate)
-    generateCalendar(namesOfMonths)
     retrieveData()
     taskSettingsModal()
+
+    generateCalendar(namesOfMonths)
     dateChanging()
 }
 
